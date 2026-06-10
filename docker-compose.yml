@@ -1,10 +1,12 @@
 services:
   resume:
-    build: .
+    image: crpi-a1liy20beodq2bdl.cn-beijing.personal.cr.aliyuncs.com/bujic/resume:latest
     ports:
       - "3000:3000"
     volumes:
       - resume-data:/data
+    environment:
+      - ACCESS_PASSWORD=your-secret-password # 若不需要密码访问限制，可将本行注释或删除
     restart: unless-stopped
 
 volumes:
