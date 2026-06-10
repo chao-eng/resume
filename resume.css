@@ -450,7 +450,7 @@ body.theme-hara {
 
 .action-hub-buttons {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   gap: 10px;
   width: 100%;
   padding-top: 14px;
@@ -909,7 +909,7 @@ body.theme-hara {
   }
 
   .action-hub-buttons {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .user-switcher {

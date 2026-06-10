@@ -1065,6 +1065,13 @@ function App() {
             onAvatarUpload={uploadAvatar}
             avatarUploading={avatarUploading}
           />
+          <button
+            type="button"
+            className="action-button action-button-secondary"
+            onClick={() => window.print()}
+          >
+            <span>导出 PDF</span>
+          </button>
           <TweaksPanel tweaks={tweaks} update={update} reset={reset} />
         </div>
       </div>
