@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>郭建朝 | 个人简历</title>
+
+  <!-- Pinned React + Babel Standalone (with Integrity) -->
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+  <!-- Google Fonts for Minimalist Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Playfair+Display:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+
+  <!-- Core Design System CSS -->
+  <link rel="stylesheet" href="resume.css">
+
+  <!-- Junior Designer Assumptions -->
+  <!--
+    设计假设与原则：
+    1. 目标：提供一个极其极简、干练、无多余花哨元素的软件开发核心工程师简历。
+    2. 主题：支持经典排印 Pentagram 风格、精密瑞士网格 Müller-Brockmann 风格及留白之禅原研哉风格。
+    3. 打印：完美适配 A4 比例，提供 Print Mode，确保简历直接打印成 PDF 时排版和分页整齐美观。
+    4. 头像：右侧设计专用方形、圆角、正圆形无边框或细灰框头像区，默认展示中文字体“郭”，可点击交互上传照片。
+  -->
+</head>
+<body>
+  <div id="root"></div>
+
+
+
+  <!-- React Layout & Tweaks Components -->
+  <script type="text/babel" src="components.jsx"></script>
+
+  <!-- Mounting Entry Point -->
+  <script type="text/babel">
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<App />);
+  </script>
+</body>
+</html>
