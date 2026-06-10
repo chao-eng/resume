@@ -74,6 +74,22 @@ docker run -d -p 3000:3000 -e ACCESS_PASSWORD=your-secret-password -v resume-dat
 
 ---
 
+## CI/CD 自动构建与发布 (GitHub Actions)
+
+项目已配置 GitHub Actions 自动构建工作流 [docker-publish.yml](file:///Users/guojc/Documents/UGit/resume/.github/workflows/docker-publish.yml)。当代码被推送到 `main` 分支时，会触发自动打包镜像并上传至**阿里云 ACR 容器镜像服务**。
+
+### 配置步骤：
+在 GitHub 仓库的 **Settings -> Secrets and variables -> Actions** 中，添加以下 Repository Secrets：
+- `ALIYUN_REGISTRY`：阿里云镜像仓库服务地址（如 `registry.cn-hangzhou.aliyuncs.com`）
+- `ALIYUN_NAMESPACE`：您的命名空间（Namespace）名称
+- `ALIYUN_REPOSITORY`：镜像仓库（Repository）名称
+- `ALIYUN_USERNAME`：登录阿里云镜像服务的用户名（通常是您的阿里云主账号名或子账号 access-key 等）
+- `ALIYUN_PASSWORD`：登录阿里云镜像服务的独立密码
+
+工作流会自动将当前北京时间（年月日-时分秒，如 `20260610-114705`）以及纯日期（如 `20260610`）和 `latest` 作为镜像的 Tag 推送到您的阿里云仓库。
+
+---
+
 ## 导入与导出 JSON 数据
 
 在网页端打开“编辑内容”抽屉后，您可以：

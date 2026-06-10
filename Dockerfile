@@ -1,8 +1,6 @@
-FROM node:22-bookworm-slim
+FROM node:22-alpine
 
-RUN apt-get update \
-  && apt-get install -y --no-install-recommends sqlite3 ca-certificates \
-  && rm -rf /var/lib/apt/lists/*
+RUN apk add --no-cache sqlite ca-certificates
 
 WORKDIR /app
 

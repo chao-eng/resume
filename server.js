@@ -109,11 +109,55 @@ function normalizeResumeData(raw) {
 
 function emptyResumeData() {
   return {
-    personalInfo: normalizePersonalInfo({ name: "未命名用户" }),
-    title: "",
-    advantages: [],
-    skills: [],
-    experience: [],
+    personalInfo: normalizePersonalInfo({
+      name: "未命名用户",
+      age: 26,
+      experienceYears: 3,
+      education: "本科 / 某某大学",
+      status: "离职-随时到岗",
+      contact: {
+        phone: "13800000000",
+        email: "weimingming@example.com",
+      },
+    }),
+    title: "全栈开发工程师",
+    advantages: [
+      "具备扎实的 JavaScript / TypeScript 开发功底，熟练掌握 React 与 Node.js 技术栈。",
+      "熟悉 RESTful API 设计与关系型数据库建模，具有优秀的代码编写规范和架构思维。",
+      "拥有良好的自主学习与问题分析解决能力，乐于沟通协作并能快速融入团队。"
+    ],
+    skills: [
+      {
+        category: "前端开发",
+        items: ["React", "Vue", "TypeScript", "Webpack / Vite", "Tailwind CSS"]
+      },
+      {
+        category: "后端开发",
+        items: ["Node.js", "Express / NestJS", "MySQL / SQLite", "RESTful API"]
+      },
+      {
+        category: "其它技能",
+        items: ["Docker", "Git", "Linux / Shell"]
+      }
+    ],
+    experience: [
+      {
+        company: "某某互联网公司",
+        role: "核心研发工程师",
+        period: "2023.07 - 至今",
+        projects: [
+          {
+            name: "高并发简历在线服务",
+            period: "2024.01 - 2024.06",
+            points: [
+              "使用 React + Node.js 研发了简历生成与管理平台，系统加载速度提升 40%。",
+              "设计并搭建了基于 SQLite 的多用户数据存储结构，完成了稳定、安全的持久化支持。",
+              "针对 PDF 打印渲染进行了排版调参优化，支持在不同设计哲学下的 A4 完美输出。"
+            ]
+          }
+        ]
+      }
+    ]
   };
 }
 
