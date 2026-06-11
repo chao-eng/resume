@@ -113,7 +113,7 @@ function emptyResumeData() {
       name: "未命名用户",
       age: 26,
       experienceYears: 3,
-      education: "本科 / 某某大学",
+      education: "硕士 / 某某大学 (2020 - 2023)\n本科 / 某某学院 (2016 - 2020)",
       status: "离职-随时到岗",
       contact: {
         phone: "13800000000",

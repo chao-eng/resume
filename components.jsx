@@ -545,7 +545,12 @@ function ResumeEditor({ data, user, onChange, onReplaceData, onSave, dirty, save
               </EditorField>
             </div>
             <EditorField label="教育">
-              <input value={data.personalInfo.education || ""} onChange={e => setPersonal("education", e.target.value)} />
+              <textarea
+                rows="3"
+                value={data.personalInfo.education || ""}
+                onChange={e => setPersonal("education", e.target.value)}
+                placeholder="例如：&#10;硕士 / 清华大学 (2020 - 2023)&#10;学士 / 北京大学 (2016 - 2020)"
+              />
             </EditorField>
             <div className="editor-two-col">
               <EditorField label="手机">
@@ -739,7 +744,7 @@ function Avatar({ styleClass, photoSrc, name, onUpload, uploading }) {
 
   return (
     <div
-      className={`avatar-container radius-${styleClass}`}
+      className={`avatar-container radius-${styleClass} ${photoSrc ? "has-photo" : ""}`}
       onClick={handlePhotoClick}
       title="点击上传个人照片"
       style={{ cursor: "pointer" }}
@@ -944,7 +949,8 @@ function App() {
 
   const wrapperClass = `resume-wrapper ${tweaks.layout === "flat" ? "flat-layout" : ""}`;
   const outerClass = tweaks.previewA4 ? "preview-mode-a4" : "";
-  const educationBrief = (data.personalInfo.education || "").split(" / ")[0] || data.personalInfo.education;
+  const firstEduLine = (data.personalInfo.education || "").split("\n")[0] || "";
+  const educationBrief = firstEduLine.split(" / ")[0] || firstEduLine;
   const displayAvatar = avatarUrl.startsWith("/uploads/")
     ? `${avatarUrl}?v=${avatarVersion}`
     : avatarUrl;
@@ -1036,10 +1042,16 @@ function App() {
 
           <section className="section">
             <h2 className="section-title">教育经历</h2>
-            <div className="section-content">
-              <div style={{ display: "flex", justifyContent: "space-between", fontSize: "var(--font-size-base)" }}>
-                <span style={{ fontWeight: "bold" }}>{data.personalInfo.education}</span>
-              </div>
+            <div className="section-content" style={{ gap: "8px" }}>
+              {(data.personalInfo.education || "").split("\n").map((line, idx) => {
+                const trimmed = line.trim();
+                if (!trimmed) return null;
+                return (
+                  <div key={idx} style={{ display: "flex", justifyContent: "space-between", fontSize: "var(--font-size-base)" }}>
+                    <span style={{ fontWeight: "bold" }}>{trimmed}</span>
+                  </div>
+                );
+              })}
             </div>
           </section>
         </div>

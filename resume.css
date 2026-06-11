@@ -186,8 +186,8 @@ body.theme-hara {
 .avatar-container {
   position: relative;
   flex-shrink: 0;
-  width: 90px;
-  height: 90px;
+  width: 120px;
+  height: 120px;
   border: 1px solid var(--border-color);
   background: var(--body-bg);
   overflow: hidden;
@@ -195,6 +195,11 @@ body.theme-hara {
   align-items: center;
   justify-content: center;
   transition: border-radius 0.2s ease;
+}
+
+.avatar-container.has-photo {
+  height: 140px;
+  width: auto;
 }
 
 .avatar-container.radius-circle {
@@ -210,16 +215,16 @@ body.theme-hara {
 /* Placeholder for missing image */
 .avatar-placeholder {
   font-family: var(--font-display);
-  font-size: 28px;
+  font-size: 36px;
   font-weight: bold;
   color: var(--text-muted);
   user-select: none;
 }
 
 .avatar-image {
-  width: 100%;
   height: 100%;
-  object-fit: cover;
+  width: auto;
+  display: block;
 }
 
 .avatar-uploading {
